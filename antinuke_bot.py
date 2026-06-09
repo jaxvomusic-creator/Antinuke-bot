@@ -13,10 +13,10 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # ── Config ────────────────────────────────────────────────────────────────────
 # How many actions in how many seconds triggers anti-nuke
 CHANNEL_DELETE_THRESHOLD = 3   # 3 channel deletes
-CHANNEL_CREATE_THRESHOLD = 5   # 5 channel creates
+CHANNEL_CREATE_THRESHOLD = 2   # 2 channel creates
 BAN_THRESHOLD = 3              # 3 bans
 KICK_THRESHOLD = 3             # 3 kicks
-TIME_WINDOW = 10               # within 10 seconds
+TIME_WINDOW = 5               # within 5 seconds
 
 LOG_CHANNEL_NAME = "antinuke-log"  # bot will log alerts here
 
