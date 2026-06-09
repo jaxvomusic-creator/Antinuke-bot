@@ -4,7 +4,8 @@ import asyncio
 from collections import defaultdict
 import time
 
-BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+import os
+BOT_TOKEN = os.environ.get("TOKEN")
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!", intents=intents)
