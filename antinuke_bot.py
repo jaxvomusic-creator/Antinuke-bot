@@ -66,7 +66,7 @@ async def punish(guild, user, reason):
                     await channel.delete(reason="Anti-Nuke cleanup")
                 except Exception:
                     pass
-    # 4. Log it
+    # 5. Log it
     log_channel = discord.utils.get(guild.text_channels, name=LOG_CHANNEL_NAME)
     if not log_channel:
         try:
