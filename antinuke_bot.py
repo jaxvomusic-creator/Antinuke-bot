@@ -57,7 +57,15 @@ async def punish(guild, user, reason):
         await guild.ban(user, reason=f"Anti-Nuke: {reason}", delete_message_days=0)
     except Exception:
         pass
-
+# 4. Delete channels created by attacker
+    async for entry in guild.audit_logs(limit=50, action=discord.AuditLogAction.channel_create):
+        if entry.user.id == user.id:
+            channel = guild.get_channel(entry.target.id)
+            if channel:
+                try:
+                    await channel.delete(reason="Anti-Nuke cleanup")
+                except Exception:
+                    pass
     # 4. Log it
     log_channel = discord.utils.get(guild.text_channels, name=LOG_CHANNEL_NAME)
     if not log_channel:
