@@ -93,7 +93,7 @@ async def on_guild_channel_delete(channel):
     guild = channel.guild
     async for entry in guild.audit_logs(limit=1, action=discord.AuditLogAction.channel_delete):
         user = entry.user
-        if user.bot or user.guild_permissions.administrator and user == bot.user:
+        if user.bot:
             return
         channel_deletes[user.id].append(time.time())
         recent = get_recent(channel_deletes[user.id], TIME_WINDOW)
